@@ -53,7 +53,7 @@ async function scrapeDoctors(searchParams) {
     console.log('Screenshot saved as debug-screenshot.png');
 
     // Wait a bit for the page to fully load
-    await page.waitForTimeout(3000);
+    await new Promise(resolve => setTimeout(resolve, 3000));
 
     // Try to find form elements with multiple selectors
     const formSelectors = [
@@ -182,7 +182,7 @@ async function scrapeDoctors(searchParams) {
 
     // Wait for results
     console.log('Waiting for results...');
-    await page.waitForTimeout(5000);
+    await new Promise(resolve => setTimeout(resolve, 5000));
 
     // Take another screenshot after submission
     await page.screenshot({ path: 'debug-results.png' });
@@ -298,7 +298,7 @@ async function scrapeDoctorsAlternative(searchParams) {
     });
 
     // Wait for page to load
-    await page.waitForTimeout(3000);
+    await new Promise(resolve => setTimeout(resolve, 3000));
 
     // Take screenshot for debugging
     await page.screenshot({ path: 'debug-alt-screenshot.png' });
@@ -344,7 +344,7 @@ async function scrapeDoctorsAlternative(searchParams) {
     await page.click('input[type="submit"], button[type="submit"], .search-button');
     
     // Wait for results
-    await page.waitForTimeout(5000);
+    await new Promise(resolve => setTimeout(resolve, 5000));
 
     // Take screenshot after submission
     await page.screenshot({ path: 'debug-alt-results.png' });
